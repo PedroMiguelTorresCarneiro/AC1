@@ -43,8 +43,8 @@
 # t1 = gray
 #
 main:	li	$t0,5		# t0 = bin
-	srl	$t2,$t0,1	# t2 = srl(t0,1)
-	xor	$t1,$t0,$t2	# t1 = t0 ^ t2 = bin ^ srl(bin,1)
+	srl	$t1,$t0,1	# t1 = srl(t0,1)
+	xor	$t1,$t0,$t1	# t1 = t0 ^ t2 = bin ^ srl(bin,1)
 	
 # gray to binary
 #
@@ -58,7 +58,9 @@ main:	li	$t0,5		# t0 = bin
 	srl	$t4,$t3,2	# srl(num,2)
 	xor	$t3,$t3,$t4	# num = num ^srl(num,2)
 	srl	$t4,$t3,1	# srl(num,1)
-	xor	$t5,$t3,$t4	# bin = num^srl(num,1)
+	xor	$t3,$t3,$t4	# num = num^srl(num,1)
+	
+	or	$t5,$t3,$0	# num = bin
 	
 	jr	$ra
 		
