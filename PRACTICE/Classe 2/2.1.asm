@@ -8,7 +8,7 @@
 #	t6 = xor(val_1,mascara) , mascara = 0xffffffff
 .data
 .text
-
+.eqv const,0xFFFFFFFF
 .globl main
 
 main:
@@ -20,7 +20,7 @@ main:
 	xor	$t5,$t0,$t1		# t5 = xor(t0,t1)
 	
 	ori	$t7,$0,0x0614		# t7 = val_x
-	xori	$t6,$t7,0xFFFFFFFF	# t6 = ~t6
+	xori	$t6,$t7,const		# t6 = ~t6
 	
 	jr	$ra
 	
